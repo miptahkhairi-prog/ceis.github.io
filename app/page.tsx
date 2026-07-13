@@ -1,5 +1,8 @@
 import { motion } from 'framer-motion'
-import Link from 'next/link'
+
+export const metadata = {
+  title: 'CENTER OF EASTERN INDONESIAN STUDIES (CEIS) - Home',
+}
 
 export default function Home() {
   return (
@@ -10,8 +13,8 @@ export default function Home() {
             <h1 className="text-4xl md:text-5xl font-bold text-primary">CENTER OF EASTERN INDONESIAN STUDIES (CEIS)</h1>
             <p className="mt-6 text-lg text-slate-700">Building People, Strengthening Academic Traditions, Shaping the Future of Eastern Indonesia.</p>
             <div className="mt-8 flex gap-4">
-              <Link href="/research" className="btn-primary inline-flex items-center px-5 py-3 rounded-md bg-primary text-white hover:opacity-95">Explore Research</Link>
-              <Link href="/contact" className="inline-flex items-center px-5 py-3 rounded-md border border-slate-200">Contact Us</Link>
+              <a href="/research" className="inline-flex items-center px-5 py-3 rounded-md bg-primary text-white hover:opacity-95">Explore Research</a>
+              <a href="/contact" className="inline-flex items-center px-5 py-3 rounded-md border border-slate-200">Contact Us</a>
             </div>
           </motion.div>
 
@@ -23,6 +26,21 @@ export default function Home() {
               </video>
             </div>
           </motion.div>
+        </div>
+
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="p-6 bg-white rounded-md shadow-sm">
+            <h3 className="font-semibold text-lg">Our Vision</h3>
+            <p className="mt-2 text-sm text-slate-600">Menjadi pusat unggulan riset multidisiplin dan penguatan kapasitas kemanusiaan di wilayah Indonesia Timur.</p>
+          </div>
+          <div className="p-6 bg-white rounded-md shadow-sm">
+            <h3 className="font-semibold text-lg">Programs</h3>
+            <p className="mt-2 text-sm text-slate-600">Research, Capacity Building, Publications, Community Development.</p>
+          </div>
+          <div className="p-6 bg-white rounded-md shadow-sm">
+            <h3 className="font-semibold text-lg">Get Involved</h3>
+            <p className="mt-2 text-sm text-slate-600">Collaborate with us, attend events, or support our initiatives.</p>
+          </div>
         </div>
       </div>
     </section>
