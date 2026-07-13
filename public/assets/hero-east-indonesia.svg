@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1600" height="900" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" fill="#E6F7FB" />
+  <g transform="translate(120,100)">
+    <circle cx="640" cy="250" r="220" fill="#CFEFF6" />
+    <path d="M500 200c50-40 160-40 240-20c80 20 160 80 180 140c20 60-60 160-140 180c-80 20-260 10-360-40c-100-50-180-180-200-260c-20-80 80-120 240-200z" fill="#69b7c9" opacity="0.9" />
+  </g>
+  <text x="120" y="80" font-family="Poppins, Inter, sans-serif" font-size="36" fill="#0F4C81" font-weight="700">CEIS — Eastern Indonesia</text>
+</svg>
