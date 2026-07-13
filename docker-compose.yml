@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: ceis
+      MYSQL_USER: ceis
+      MYSQL_PASSWORD: ceis
+    ports:
+      - '3306:3306'
+    volumes:
+      - db_data:/var/lib/mysql
+  web:
+    build: .
+    command: npm run dev
+    ports:
+      - '3000:3000'
+    environment:
+      DATABASE_URL: mysql://ceis:ceis@db:3306/ceis
+    depends_on:
+      - db
+volumes:
+  db_data:
