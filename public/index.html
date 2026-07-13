@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CEIS — Center of Eastern Indonesian Studies</title>
+  <meta name="description" content="CEIS — Membangun Manusia, Menguatkan Tradisi Akademik, Membentuk Masa Depan Indonesia Timur." />
+  <meta property="og:title" content="CEIS — Center of Eastern Indonesian Studies" />
+  <meta property="og:description" content="CEIS — Membangun Manusia, Menguatkan Tradisi Akademik, Membentuk Masa Depan Indonesia Timur." />
+  <meta property="og:image" content="/assets/ceis-logo.svg" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --bg:#f8fafc;
+      --card:#ffffff;
+      --muted:#667085;
+      --primary:#0f4c81; /* navy */
+      --accent:#f4b400;  /* warm accent */
+      --radius:14px;
+      --container:1100px;
+      color-scheme: light;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:linear-gradient(180deg,var(--bg),#eef7fb 60%);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      color:#0f1724;
+      line-height:1.5;
+      font-size:16px;
+      display:flex;
+      flex-direction:column;
+      min-height:100vh;
+    }
+
+    .container{
+      width:100%;
+      max-width:var(--container);
+      margin:0 auto;
+      padding:0 20px;
+    }
+
+    header{
+      backdrop-filter: blur(6px);
+      background:rgba(255,255,255,0.55);
+      border-bottom:1px solid rgba(15,76,129,0.06);
+      position:sticky;
+      top:0;
+      z-index:40;
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      height:72px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-decoration:none;
+      color:var(--primary);
+    }
+    .brand img{width:44px;height:44px;display:block}
+    .brand h1{margin:0;font-family:Poppins,Inter,sans-serif;font-weight:700;font-size:18px}
+
+    nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;font-weight:600}
+    nav a.cta{
+      background:var(--primary);
+      color:#fff;
+      padding:10px 14px;
+      border-radius:10px;
+      box-shadow:0 6px 18px rgba(15,76,129,0.12);
+    }
+
+    /* Hero */
+    .hero{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:28px;
+      align-items:center;
+      padding:64px 0;
+    }
+    @media(min-width:992px){
+      .hero{grid-template-columns:1fr 520px}
+    }
+    .hero-card{
+      background:linear-gradient(180deg,var(--card),#fdfdfd);
+      padding:36px;
+      border-radius:var(--radius);
+      box-shadow:0 10px 30px rgba(15,76,129,0.06);
+    }
+    .eyebrow{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(15,76,129,0.06);color:var(--primary);font-weight:600;font-size:13px}
+    h2{font-family:Poppins,Inter,sans-serif;font-weight:700;font-size:36px;margin:12px 0 8px;color:var(--primary)}
+    p.lead{color:var(--muted);margin:0 0 18px}
+
+    .actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:10px;border:0;cursor:pointer;font-weight:600}
+    .btn.primary{background:var(--primary);color:#fff;box-shadow:0 8px 20px rgba(15,76,129,0.12)}
+    .btn.ghost{background:transparent;border:1px solid rgba(15,76,129,0.08);color:var(--primary)}
+
+    .stats{display:flex;gap:18px;margin-top:18px}
+    .stat{background:rgba(15,76,129,0.03);padding:10px 12px;border-radius:10px;text-align:center;min-width:88px}
+    .stat strong{display:block;font-size:20px;color:var(--primary)}
+
+    .hero-media{border-radius:16px;overflow:hidden;box-shadow:0 18px 40px rgba(15,76,129,0.06)}
+    .hero-media svg, .hero-media img{display:block;width:100%;height:100%;object-fit:cover}
+
+    /* Sections */
+    section.features{padding:48px 0}
+    .grid-cards{display:grid;grid-template-columns:repeat(1,1fr);gap:18px}
+    @media(min-width:768px){.grid-cards{grid-template-columns:repeat(3,1fr)}}
+    .card{background:var(--card);padding:20px;border-radius:12px;box-shadow:0 8px 20px rgba(12,38,69,0.04)}
+    .card h3{margin:0 0 8px;color:var(--primary)}
+
+    /* Publications / Researchers previews */
+    .list-grid{display:grid;grid-template-columns:repeat(1,1fr);gap:16px}
+    @media(min-width:768px){.list-grid{grid-template-columns:repeat(2,1fr)}}
+    .item{background:#fff;padding:16px;border-radius:10px;border:1px solid rgba(12,38,69,0.03)}
+
+    /* CTA / Footer */
+    .cta-block{padding:36px;border-radius:12px;background:linear-gradient(90deg,var(--primary),#0b3b63);color:#fff;text-align:center;margin:36px 0}
+    footer{margin-top:auto;padding:28px 0;background:transparent}
+    .footer-grid{display:grid;grid-template-columns:1fr;gap:18px}
+    @media(min-width:768px){.footer-grid{grid-template-columns:1fr 1fr 1fr}}
+
+    /* Newsletter */
+    .subscribe{display:flex;gap:8px;flex-wrap:wrap}
+    .subscribe input{flex:1;padding:10px;border-radius:10px;border:1px solid rgba(12,38,69,0.06)}
+    .muted{color:var(--muted)}
+
+    /* small utilities & animations */
+    .fade-in{opacity:0;transform:translateY(12px);transition:opacity .6s ease,transform .6s ease}
+    .fade-in.visible{opacity:1;transform:none}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav" role="navigation" aria-label="Main navigation">
+      <a class="brand" href="/">
+        <img src="/assets/ceis-logo.svg" alt="CEIS logo" />
+        <h1>CEIS</h1>
+      </a>
+
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="/research">Riset</a></li>
+          <li><a href="/publications">Publikasi</a></li>
+          <li><a href="/news">Berita</a></li>
+          <li><a href="/about">Tentang</a></li>
+          <li><a class="cta" href="/admin">Admin</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" id="main">
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero-card fade-in" id="hero-left">
+        <span class="eyebrow">Pusat Riset • Indonesia Timur</span>
+        <h2 id="hero-heading">Membangun Manusia, Menguatkan Tradisi Akademik</h2>
+        <p class="lead">CEIS adalah pusat studi multidisiplin yang fokus pada isu sosial, budaya, kebijakan, dan pembangunan di wilayah Indonesia Timur.</p>
+
+        <div class="actions" role="group" aria-label="Primary actions">
+          <a href="/research" class="btn primary">Jelajahi Riset</a>
+          <a href="/contact" class="btn ghost">Hubungi Kami</a>
+        </div>
+
+        <div class="stats" aria-hidden="false">
+          <div class="stat"><strong>120+</strong><span class="muted">Peneliti</span></div>
+          <div class="stat"><strong>85</strong><span class="muted">Publikasi</span></div>
+          <div class="stat"><strong>40</strong><span class="muted">Kegiatan</span></div>
+        </div>
+      </div>
+
+      <div class="hero-media fade-in" id="hero-right" role="img" aria-label="Peta Indonesia Timur">
+        <!-- fallback to SVG hero; replace with video or webp for production -->
+        <img src="/assets/hero-east-indonesia.svg" alt="Ilustrasi Timur Indonesia" />
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features" aria-labelledby="features-heading">
+      <div class="container">
+        <h3 id="features-heading">Apa yang Kami Lakukan</h3>
+        <div class="grid-cards" id="features-list">
+          <article class="card fade-in">
+            <h3>Riset Multidisiplin</h3>
+            <p class="muted">Kolaborasi lintas disiplin untuk memahami dinamika sosial, budaya, dan kebijakan di Indonesia Timur.</p>
+          </article>
+          <article class="card fade-in">
+            <h3>Capacity Building</h3>
+            <p class="muted">Pelatihan, workshop, dan pendampingan untuk memperkuat kapasitas lokal.</p>
+          </article>
+          <article class="card fade-in">
+            <h3>Publikasi & JEIS</h3>
+            <p class="muted">Jurnal, laporan kebijakan, dan working papers sebagai sumber referensi terpercaya.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROGRAMS PREVIEW -->
+    <section aria-labelledby="programs-heading">
+      <div class="container">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <h3 id="programs-heading">Programs</h3>
+          <a href="/programs" style="color:var(--primary);font-weight:700">Lihat semua →</a>
+        </div>
+
+        <div class="list-grid" style="margin-top:16px">
+          <div class="item fade-in">
+            <h4>Research Projects</h4>
+            <p class="muted">Proyek penelitian jangka menengah dan panjang bersama mitra lokal.</p>
+          </div>
+          <div class="item fade-in">
+            <h4>Training & Workshops</h4>
+            <p class="muted">Program peningkatan kapasitas untuk pemangku kepentingan.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PUBLICATIONS PREVIEW -->
+    <section aria-labelledby="pubs-heading" style="margin-top:28px">
+      <div class="container">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <h3 id="pubs-heading">Publikasi Terbaru</h3>
+          <a href="/publications" style="color:var(--primary);font-weight:700">Lihat semua →</a>
+        </div>
+
+        <div class="list-grid" style="margin-top:16px">
+          <article class="item fade-in">
+            <strong>Report on Eastern Indonesia Development</strong>
+            <div class="muted" style="margin-top:6px">2024 • Report</div>
+          </article>
+          <article class="item fade-in">
+            <strong>Working Paper: Digital Society</strong>
+            <div class="muted" style="margin-top:6px">2023 • Working Paper</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESEARCHERS PREVIEW -->
+    <section aria-labelledby="researchers-heading" style="margin-top:28px">
+      <div class="container">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <h3 id="researchers-heading">Peneliti</h3>
+          <a href="/researchers" style="color:var(--primary);font-weight:700">Lihat semua →</a>
+        </div>
+
+        <div class="list-grid" style="margin-top:16px">
+          <div class="item fade-in">
+            <strong>Dr. A. Researcher</strong>
+            <div class="muted">Senior Fellow — Education & Culture</div>
+          </div>
+          <div class="item fade-in">
+            <strong>Dr. B. Scholar</strong>
+            <div class="muted">Researcher — Social Policy</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-block" role="region" aria-label="Call to action">
+      <div class="container">
+        <h3 style="margin:0;font-size:24px">Dukung Kegiatan Kami</h3>
+        <p style="margin:8px 0 0">Bergabung atau menjadi mitra untuk memperkuat masa depan Indonesia Timur.</p>
+        <div style="margin-top:12px"><a class="btn primary" href="/contact">Hubungi Kami</a></div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section aria-labelledby="subscribe-heading" style="padding-bottom:28px">
+      <div class="container">
+        <div style="max-width:720px;margin:0 auto" class="fade-in">
+          <h3 id="subscribe-heading">Berlangganan Newsletter</h3>
+          <p class="muted">Dapatkan pembaruan riset, publikasi, dan acara.</p>
+
+          <form id="subscribe-form" class="subscribe" onsubmit="return subscribe(event)" aria-label="Subscribe form">
+            <input id="email" type="email" name="email" placeholder="Email Anda" required aria-required="true" />
+            <button class="btn primary" type="submit">Daftar</button>
+          </form>
+
+          <p id="subs-msg" class="muted" style="margin-top:10px"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <strong>CEIS</strong>
+        <div class="muted" style="margin-top:8px">Center of Eastern Indonesian Studies — Membangun riset & kapasitas di Indonesia Timur.</div>
+      </div>
+      <div>
+        <strong>Link</strong>
+        <ul style="padding-left:0;margin:8px 0 0;list-style:none" class="muted">
+          <li><a href="/about">About</a></li>
+          <li><a href="/publications">Publications</a></li>
+          <li><a href="/researchers">Researchers</a></li>
+        </ul>
+      </div>
+      <div>
+        <strong>Kontak</strong>
+        <div class="muted" style="margin-top:8px">Jl. Contoh No.1 — Email: info@ceis.id</div>
+      </div>
+    </div>
+
+    <div style="text-align:center;padding:12px 0;color:var(--muted);font-size:13px">© <span id="year"></span> CEIS — All rights reserved</div>
+  </footer>
+
+  <script>
+    // Simple animations: reveal on scroll
+    (function(){
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{
+          if(e.isIntersecting) e.target.classList.add('visible');
+        });
+      }, {threshold: 0.15});
+
+      document.querySelectorAll('.fade-in').forEach(el=>io.observe(el));
+      document.getElementById('year').textContent = new Date().getFullYear();
+    })();
+
+    // Newsletter submit: POST to /api/subscribe (falls back to localStorage)
+    async function subscribe(e){
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const msg = document.getElementById('subs-msg');
+      msg.textContent = '';
+      try {
+        const res = await fetch('/api/subscribe', {
+          method:'POST',
+          headers:{'content-type':'application/json'},
+          body: JSON.stringify({email})
+        });
+        if(res.ok){
+          msg.textContent = 'Terima kasih — Anda telah terdaftar!';
+          document.getElementById('email').value = '';
+        } else {
+          const body = await res.json().catch(()=>({}));
+          msg.textContent = body?.error || 'Gagal mendaftar — coba lagi nanti.';
+        }
+      } catch(err){
+        // graceful fallback: store locally
+        try {
+          const list = JSON.parse(localStorage.getItem('ceis_subs')||'[]');
+          list.push({email, t:Date.now()});
+          localStorage.setItem('ceis_subs', JSON.stringify(list));
+          msg.textContent = 'Simpan lokal — Anda terdaftar (demo).';
+        } catch(e){
+          msg.textContent = 'Terjadi kesalahan. Silakan coba lagi.';
+        }
+      }
+      return false;
+    }
+  </script>
+</body>
+</html>
